@@ -1,0 +1,16 @@
+# For very new Python versions (3.14 / 3.15) where CatBoost and PyYAML have no ready wheels.
+# CatBoost is skipped automatically (5 other models are trained); config.json replaces config.yaml.
+numpy
+pandas
+scikit-learn
+imbalanced-learn
+xgboost
+lightgbm
+shap
+scipy
+matplotlib
+seaborn
+plotly
+streamlit
+joblib
+pytest

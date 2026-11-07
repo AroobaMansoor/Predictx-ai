@@ -1,0 +1,141 @@
+{
+  "project": {
+    "name": "PredictX AI",
+    "title": "An Explainable Machine Learning Framework for Intelligent Predictive Maintenance and Industrial Equipment Failure Prediction",
+    "version": "1.0.0"
+  },
+  "seed": 42,
+  "paths": {
+    "raw_data": "data/raw/ai4i2020.csv",
+    "processed_dir": "data/processed",
+    "models_dir": "models",
+    "figures_dir": "outputs/figures",
+    "reports_dir": "outputs/reports",
+    "predictions_dir": "outputs/predictions",
+    "logs_dir": "outputs/logs"
+  },
+  "dataset": {
+    "uci_zip_url": "https://archive.ics.uci.edu/static/public/601/ai4i+2020+predictive+maintenance+dataset.zip",
+    "target": "machine_failure",
+    "failure_modes": [
+      "twf",
+      "hdf",
+      "pwf",
+      "osf",
+      "rnf"
+    ],
+    "id_columns": [
+      "udi",
+      "product_id"
+    ]
+  },
+  "split": {
+    "test_size": 0.2,
+    "val_size": 0.2,
+    "stratify": true
+  },
+  "features": {
+    "categorical": [
+      "type"
+    ],
+    "numeric_base": [
+      "air_temp_k",
+      "process_temp_k",
+      "rotational_speed_rpm",
+      "torque_nm",
+      "tool_wear_min"
+    ],
+    "engineered": [
+      "temp_diff_k",
+      "power_w",
+      "wear_torque_min_nm",
+      "temp_diff_x_torque"
+    ],
+    "final_feature_set": "auto"
+  },
+  "training": {
+    "cv_folds": 5,
+    "search_iterations": 20,
+    "scoring": "average_precision",
+    "selection_metric": "pr_auc",
+    "n_jobs": 2,
+    "models": [
+      "logistic_regression",
+      "random_forest",
+      "xgboost",
+      "lightgbm",
+      "catboost",
+      "neural_network"
+    ],
+    "imbalance_strategies": [
+      "none",
+      "class_weight",
+      "smote",
+      "random_undersample"
+    ]
+  },
+  "threshold": {
+    "strategy": "f1",
+    "fixed_value": 0.5
+  },
+  "risk": {
+    "low_max": 0.1,
+    "high_min": "auto"
+  },
+  "calibration": {
+    "methods": [
+      "none",
+      "sigmoid",
+      "isotonic"
+    ],
+    "bins": 10
+  },
+  "explainability": {
+    "background_size": 200,
+    "shap_sample_size": 1000,
+    "top_k": 5
+  },
+  "validation": {
+    "hard_limits": {
+      "air_temp_k": [
+        250.0,
+        400.0
+      ],
+      "process_temp_k": [
+        250.0,
+        450.0
+      ],
+      "rotational_speed_rpm": [
+        0.0,
+        5000.0
+      ],
+      "torque_nm": [
+        0.0,
+        200.0
+      ],
+      "tool_wear_min": [
+        0.0,
+        500.0
+      ]
+    },
+    "allowed_types": [
+      "L",
+      "M",
+      "H"
+    ]
+  },
+  "recommendations": {
+    "tool_wear_warning_min": 180,
+    "tool_wear_critical_min": 200,
+    "heat_dissipation_temp_diff_k": 8.6,
+    "heat_dissipation_rpm": 1380,
+    "power_min_w": 3500,
+    "power_max_w": 9000,
+    "overstrain_limit_min_nm": {
+      "L": 11000,
+      "M": 12000,
+      "H": 13000
+    },
+    "overstrain_warning_ratio": 0.85
+  }
+}
