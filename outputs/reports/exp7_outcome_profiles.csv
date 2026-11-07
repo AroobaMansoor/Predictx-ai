@@ -1,0 +1,4 @@
+outcome,air_temp_k,process_temp_k,rotational_speed_rpm,torque_nm,tool_wear_min,temp_diff_k,power_w,wear_torque_min_nm,probability,count
+FN,300.741,310.224,1500.941,42.171,190.588,9.482,6406.624,7869.012,0.159,17
+TN,299.977,309.999,1538.455,39.561,107.455,10.022,6233.624,4250.824,0.007,1932
+TP,300.743,310.108,1472.451,52.818,140.902,9.365,7533.946,7427.602,0.941,51

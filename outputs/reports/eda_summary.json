@@ -1,0 +1,303 @@
+{
+  "shape": [
+    10000,
+    14
+  ],
+  "dtypes": {
+    "udi": "int64",
+    "product_id": "str",
+    "type": "str",
+    "air_temp_k": "float64",
+    "process_temp_k": "float64",
+    "rotational_speed_rpm": "int64",
+    "torque_nm": "float64",
+    "tool_wear_min": "int64",
+    "machine_failure": "int64",
+    "twf": "int64",
+    "hdf": "int64",
+    "pwf": "int64",
+    "osf": "int64",
+    "rnf": "int64"
+  },
+  "validation": {
+    "n_rows": 10000,
+    "n_columns": 14,
+    "missing_values": {
+      "udi": 0,
+      "product_id": 0,
+      "type": 0,
+      "air_temp_k": 0,
+      "process_temp_k": 0,
+      "rotational_speed_rpm": 0,
+      "torque_nm": 0,
+      "tool_wear_min": 0,
+      "machine_failure": 0,
+      "twf": 0,
+      "hdf": 0,
+      "pwf": 0,
+      "osf": 0,
+      "rnf": 0
+    },
+    "total_missing": 0,
+    "duplicate_rows_all_columns": 0,
+    "duplicate_rows_feature_columns": 0,
+    "duplicate_ids": 0,
+    "n_failures": 339,
+    "failure_rate": 0.0339,
+    "failures_without_mode_label": 9,
+    "mode_label_without_failure": 18,
+    "rows_with_multiple_modes": 24
+  },
+  "class_distribution": {
+    "no_failure": 9661,
+    "failure": 339,
+    "failure_rate_pct": 3.39,
+    "imbalance_ratio": 28.49852507374631
+  },
+  "descriptive_statistics": {
+    "air_temp_k": {
+      "count": 10000.0,
+      "mean": 300.0049,
+      "std": 2.0003,
+      "min": 295.3,
+      "25%": 298.3,
+      "50%": 300.1,
+      "75%": 301.5,
+      "max": 304.5
+    },
+    "process_temp_k": {
+      "count": 10000.0,
+      "mean": 310.0056,
+      "std": 1.4837,
+      "min": 305.7,
+      "25%": 308.8,
+      "50%": 310.1,
+      "75%": 311.1,
+      "max": 313.8
+    },
+    "rotational_speed_rpm": {
+      "count": 10000.0,
+      "mean": 1538.7761,
+      "std": 179.2841,
+      "min": 1168.0,
+      "25%": 1423.0,
+      "50%": 1503.0,
+      "75%": 1612.0,
+      "max": 2886.0
+    },
+    "torque_nm": {
+      "count": 10000.0,
+      "mean": 39.9869,
+      "std": 9.9689,
+      "min": 3.8,
+      "25%": 33.2,
+      "50%": 40.1,
+      "75%": 46.8,
+      "max": 76.6
+    },
+    "tool_wear_min": {
+      "count": 10000.0,
+      "mean": 107.951,
+      "std": 63.6541,
+      "min": 0.0,
+      "25%": 53.0,
+      "50%": 108.0,
+      "75%": 162.0,
+      "max": 253.0
+    },
+    "temp_diff_k": {
+      "count": 10000.0,
+      "mean": 10.0006,
+      "std": 1.0011,
+      "min": 7.6,
+      "25%": 9.3,
+      "50%": 9.8,
+      "75%": 11.0,
+      "max": 12.1
+    },
+    "power_w": {
+      "count": 10000.0,
+      "mean": 6279.745,
+      "std": 1067.4183,
+      "min": 1148.4406,
+      "25%": 5561.1845,
+      "50%": 6271.0273,
+      "75%": 7003.0027,
+      "max": 10469.923
+    },
+    "wear_torque_min_nm": {
+      "count": 10000.0,
+      "mean": 4314.6646,
+      "std": 2826.5677,
+      "min": 0.0,
+      "25%": 1963.65,
+      "50%": 4012.95,
+      "75%": 6279.0,
+      "max": 16497.0
+    }
+  },
+  "failure_rate_by_type": {
+    "L": {
+      "failure_rate_pct": 3.916666666666667,
+      "failures": 235,
+      "count": 6000
+    },
+    "M": {
+      "failure_rate_pct": 2.7694361027694363,
+      "failures": 83,
+      "count": 2997
+    },
+    "H": {
+      "failure_rate_pct": 2.0937188434695915,
+      "failures": 21,
+      "count": 1003
+    }
+  },
+  "correlation_with_target": {
+    "air_temp_k": 0.0826,
+    "process_temp_k": 0.0359,
+    "rotational_speed_rpm": -0.0442,
+    "torque_nm": 0.1913,
+    "tool_wear_min": 0.1054,
+    "temp_diff_k": -0.1117,
+    "power_w": 0.176,
+    "wear_torque_min_nm": 0.1904
+  },
+  "air_vs_process_temp_corr": 0.8761071581166637,
+  "rpm_vs_torque_corr": -0.8750270862996037,
+  "failure_vs_normal_means": {
+    "air_temp_k": {
+      "no_failure_mean": 299.974,
+      "failure_mean": 300.8864,
+      "ratio_failure_to_normal": 1.003
+    },
+    "process_temp_k": {
+      "no_failure_mean": 309.9956,
+      "failure_mean": 310.2903,
+      "ratio_failure_to_normal": 1.001
+    },
+    "rotational_speed_rpm": {
+      "no_failure_mean": 1540.26,
+      "failure_mean": 1496.4867,
+      "ratio_failure_to_normal": 0.9716
+    },
+    "torque_nm": {
+      "no_failure_mean": 39.6297,
+      "failure_mean": 50.1681,
+      "ratio_failure_to_normal": 1.2659
+    },
+    "tool_wear_min": {
+      "no_failure_mean": 106.6937,
+      "failure_mean": 143.7817,
+      "ratio_failure_to_normal": 1.3476
+    },
+    "temp_diff_k": {
+      "no_failure_mean": 10.0216,
+      "failure_mean": 9.4038,
+      "ratio_failure_to_normal": 0.9384
+    },
+    "power_w": {
+      "no_failure_mean": 6244.5475,
+      "failure_mean": 7282.8195,
+      "ratio_failure_to_normal": 1.1663
+    },
+    "wear_torque_min_nm": {
+      "no_failure_mean": 4213.8427,
+      "failure_mean": 7187.9383,
+      "ratio_failure_to_normal": 1.7058
+    }
+  },
+  "failure_mode_counts": {
+    "Tool Wear Failure": 46,
+    "Heat Dissipation Failure": 115,
+    "Power Failure": 95,
+    "Overstrain Failure": 98,
+    "Random Failure": 19
+  },
+  "failure_mode_cooccurrence": {
+    "Tool Wear Failure": {
+      "Tool Wear Failure": 46,
+      "Heat Dissipation Failure": 0,
+      "Power Failure": 1,
+      "Overstrain Failure": 3,
+      "Random Failure": 1
+    },
+    "Heat Dissipation Failure": {
+      "Tool Wear Failure": 0,
+      "Heat Dissipation Failure": 115,
+      "Power Failure": 3,
+      "Overstrain Failure": 6,
+      "Random Failure": 0
+    },
+    "Power Failure": {
+      "Tool Wear Failure": 1,
+      "Heat Dissipation Failure": 3,
+      "Power Failure": 95,
+      "Overstrain Failure": 12,
+      "Random Failure": 0
+    },
+    "Overstrain Failure": {
+      "Tool Wear Failure": 3,
+      "Heat Dissipation Failure": 6,
+      "Power Failure": 12,
+      "Overstrain Failure": 98,
+      "Random Failure": 0
+    },
+    "Random Failure": {
+      "Tool Wear Failure": 1,
+      "Heat Dissipation Failure": 0,
+      "Power Failure": 0,
+      "Overstrain Failure": 0,
+      "Random Failure": 19
+    }
+  },
+  "outliers_iqr": {
+    "air_temp_k": {
+      "lower_bound": 293.5,
+      "upper_bound": 306.29999999999995,
+      "n_outliers": 0,
+      "pct_outliers": 0.0,
+      "failure_rate_in_outliers": null
+    },
+    "process_temp_k": {
+      "lower_bound": 305.35,
+      "upper_bound": 314.55000000000007,
+      "n_outliers": 0,
+      "pct_outliers": 0.0,
+      "failure_rate_in_outliers": null
+    },
+    "rotational_speed_rpm": {
+      "lower_bound": 1139.5,
+      "upper_bound": 1895.5,
+      "n_outliers": 418,
+      "pct_outliers": 4.18,
+      "failure_rate_in_outliers": 0.08373205741626795
+    },
+    "torque_nm": {
+      "lower_bound": 12.800000000000011,
+      "upper_bound": 67.19999999999999,
+      "n_outliers": 69,
+      "pct_outliers": 0.69,
+      "failure_rate_in_outliers": 0.8985507246376812
+    },
+    "tool_wear_min": {
+      "lower_bound": -110.5,
+      "upper_bound": 325.5,
+      "n_outliers": 0,
+      "pct_outliers": 0.0,
+      "failure_rate_in_outliers": null
+    }
+  },
+  "mode_without_failure_breakdown": "RNF=18",
+  "observations": [
+    "The dataset has 10,000 rows and 14 columns with 0 missing values and 0 fully duplicated rows.",
+    "Failures are rare: 339 of 10,000 records (3.39%), an imbalance of about 1:28. Accuracy alone is therefore misleading (always predicting 'No Failure' would already score 96.6%).",
+    "Failure rate by product type: L = 3.92% (n=6,000), M = 2.77% (n=2,997), H = 2.09% (n=1,003).",
+    "Failed machines have higher mean torque (50.2 vs 39.6 Nm) and higher mean tool wear (144 vs 107 min).",
+    "Mean temperature difference is lower for failures (9.40 vs 10.02 K), consistent with heat-dissipation problems.",
+    "Rotational speed and torque are strongly negatively correlated (r = -0.88); air and process temperature are strongly positively correlated (r = 0.88).",
+    "Strongest linear correlations with failure: Torque [Nm] (+0.191), Wear x Torque [min\u00b7Nm] (+0.190), Power [W] (+0.176). Linear correlations are weak overall, which suggests non-linear (threshold-like) failure behaviour.",
+    "IQR outliers: Rotational speed [rpm] 418 rows (failure rate 8.4%), Torque [Nm] 69 rows (failure rate 89.9%) versus 3.39% overall. These are plausible extreme operating points that carry real failure signal, so they are kept rather than removed.",
+    "Failure-mode labels overlap: 24 rows carry more than one mode, 9 failures have no mode label, and 18 rows have a mode flag but Machine failure = 0 (RNF=18)."
+  ]
+}

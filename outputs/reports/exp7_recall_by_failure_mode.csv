@@ -1,0 +1,7 @@
+mode,failures_in_test,detected,recall
+Tool Wear Failure,10,1,0.1
+Heat Dissipation Failure,29,24,0.8275862068965517
+Power Failure,13,13,1.0
+Overstrain Failure,16,15,0.9375
+Random Failure,0,0,
+No mode label,2,0,0.0

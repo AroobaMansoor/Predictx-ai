@@ -1,0 +1,6 @@
+,Tool Wear Failure,Heat Dissipation Failure,Power Failure,Overstrain Failure,Random Failure
+Tool Wear Failure,46,0,1,3,1
+Heat Dissipation Failure,0,115,3,6,0
+Power Failure,1,3,95,12,0
+Overstrain Failure,3,6,12,98,0
+Random Failure,1,0,0,0,19

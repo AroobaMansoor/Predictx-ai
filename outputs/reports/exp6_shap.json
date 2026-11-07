@@ -1,0 +1,97 @@
+{
+  "model": "Random Forest",
+  "output_space": "probability",
+  "n_explained": 1000,
+  "global_importance": [
+    {
+      "feature": "temp_diff_k",
+      "mean_abs_shap": 0.018057534495768506,
+      "mean_shap": 0.0006557150601251748,
+      "share_pct": 24.8201434706512,
+      "label": "Temp. difference [K]"
+    },
+    {
+      "feature": "wear_torque_min_nm",
+      "mean_abs_shap": 0.016815375046705727,
+      "mean_shap": -0.000796785385432564,
+      "share_pct": 23.11279102193303,
+      "label": "Wear x Torque [min\u00b7Nm]"
+    },
+    {
+      "feature": "rotational_speed_rpm",
+      "mean_abs_shap": 0.015389087954811774,
+      "mean_shap": -0.001753354655514724,
+      "share_pct": 21.152354492824287,
+      "label": "Rotational speed [rpm]"
+    },
+    {
+      "feature": "power_w",
+      "mean_abs_shap": 0.009283323920916147,
+      "mean_shap": -0.005660986266397979,
+      "share_pct": 12.759960760737338,
+      "label": "Power [W]"
+    },
+    {
+      "feature": "tool_wear_min",
+      "mean_abs_shap": 0.004790065409903466,
+      "mean_shap": 0.00027038555979102706,
+      "share_pct": 6.583961433686734,
+      "label": "Tool wear [min]"
+    },
+    {
+      "feature": "type",
+      "mean_abs_shap": 0.0033389496913265567,
+      "mean_shap": -0.0011077901805180666,
+      "share_pct": 4.589397871532888,
+      "label": "Product type"
+    },
+    {
+      "feature": "torque_nm",
+      "mean_abs_shap": 0.0029962314700883942,
+      "mean_shap": -0.0007076484966218728,
+      "share_pct": 4.118330493916586,
+      "label": "Torque [Nm]"
+    },
+    {
+      "feature": "air_temp_k",
+      "mean_abs_shap": 0.0011004979537169992,
+      "mean_shap": 0.00011544468484059664,
+      "share_pct": 1.5126382345726492,
+      "label": "Air temperature [K]"
+    },
+    {
+      "feature": "temp_diff_x_torque",
+      "mean_abs_shap": 0.0006307131374707645,
+      "mean_shap": 0.0004182554703360297,
+      "share_pct": 0.866917383683652,
+      "label": "Temp. diff x Torque [K\u00b7Nm]"
+    },
+    {
+      "feature": "process_temp_k",
+      "mean_abs_shap": 0.0003517669135797256,
+      "mean_shap": 3.2215673088271265e-05,
+      "share_pct": 0.4835048364616387,
+      "label": "Process temperature [K]"
+    }
+  ],
+  "waterfall_examples": {
+    "true_positive": {
+      "type": "M",
+      "air_temp_k": 298.7,
+      "process_temp_k": 310.1,
+      "rotational_speed_rpm": 1402,
+      "torque_nm": 69.7,
+      "tool_wear_min": 64,
+      "probability": 0.9972610722610724
+    },
+    "true_negative": {
+      "type": "L",
+      "air_temp_k": 298.4,
+      "process_temp_k": 308.5,
+      "rotational_speed_rpm": 1741,
+      "torque_nm": 32.8,
+      "tool_wear_min": 112,
+      "probability": 0.0016385341272921357
+    }
+  }
+}
