@@ -1,0 +1,61 @@
+2026-11-06 17:41:22 | INFO    | predictx.train | ======================================================================
+2026-11-06 17:41:22 | INFO    | predictx.train | PredictX AI training run started (quick=False, seed=42)
+2026-11-06 17:41:22 | INFO    | predictx.train | Library versions: {'python': '3.13.18', 'numpy': '2.5.3', 'pandas': '3.0.5', 'scikit-learn': '1.9.1', 'xgboost': '3.4.1', 'lightgbm': '4.7.0', 'catboost': '1.2.10', 'imbalanced-learn': '0.14.2', 'shap': '0.54.1'}
+2026-11-06 17:41:24 | INFO    | predictx.train | EDA: The dataset has 10,000 rows and 14 columns with 0 missing values and 0 fully duplicated rows.
+2026-11-06 17:41:24 | INFO    | predictx.train | EDA: Failures are rare: 339 of 10,000 records (3.39%), an imbalance of about 1:28. Accuracy alone is therefore misleading (always predicting 'No Failure' would already score 96.6%).
+2026-11-06 17:41:24 | INFO    | predictx.train | EDA: Failure rate by product type: L = 3.92% (n=6,000), M = 2.77% (n=2,997), H = 2.09% (n=1,003).
+2026-11-06 17:41:24 | INFO    | predictx.train | EDA: Failed machines have higher mean torque (50.2 vs 39.6 Nm) and higher mean tool wear (144 vs 107 min).
+2026-11-06 17:41:24 | INFO    | predictx.train | EDA: Mean temperature difference is lower for failures (9.40 vs 10.02 K), consistent with heat-dissipation problems.
+2026-11-06 17:41:24 | INFO    | predictx.train | EDA: Rotational speed and torque are strongly negatively correlated (r = -0.88); air and process temperature are strongly positively correlated (r = 0.88).
+2026-11-06 17:41:24 | INFO    | predictx.train | EDA: Strongest linear correlations with failure: Torque [Nm] (+0.191), Wear x Torque [min·Nm] (+0.190), Power [W] (+0.176). Linear correlations are weak overall, which suggests non-linear (threshold-like) failure behaviour.
+2026-11-06 17:41:24 | INFO    | predictx.train | EDA: IQR outliers: Rotational speed [rpm] 418 rows (failure rate 8.4%), Torque [Nm] 69 rows (failure rate 89.9%) versus 3.39% overall. These are plausible extreme operating points that carry real failure signal, so they are kept rather than removed.
+2026-11-06 17:41:24 | INFO    | predictx.train | EDA: Failure-mode labels overlap: 24 rows carry more than one mode, 9 failures have no mode label, and 18 rows have a mode flag but Machine failure = 0 (RNF=18).
+2026-11-06 17:41:24 | INFO    | predictx.train | Split: {'train': {'rows': 6000, 'failures': 203, 'failure_rate': 0.03383333333333333}, 'validation': {'rows': 2000, 'failures': 68, 'failure_rate': 0.034}, 'test': {'rows': 2000, 'failures': 68, 'failure_rate': 0.034}}
+2026-11-06 17:41:24 | INFO    | predictx.train | Experiment 2: baseline vs engineered features (default hyperparameters)
+2026-11-06 17:41:26 | INFO    | predictx.train |   Logistic Regression    baseline   CV PR-AUC 0.4721±0.0903 | val PR-AUC 0.4054
+2026-11-06 17:41:26 | INFO    | predictx.train |   Logistic Regression    engineered CV PR-AUC 0.4997±0.0860 | val PR-AUC 0.4682
+2026-11-06 17:41:31 | INFO    | predictx.train |   Random Forest          baseline   CV PR-AUC 0.7671±0.0641 | val PR-AUC 0.7688
+2026-11-06 17:41:38 | INFO    | predictx.train |   Random Forest          engineered CV PR-AUC 0.9014±0.0463 | val PR-AUC 0.8649
+2026-11-06 17:41:38 | INFO    | predictx.train |   XGBoost                baseline   CV PR-AUC 0.7813±0.0495 | val PR-AUC 0.7103
+2026-11-06 17:41:39 | INFO    | predictx.train |   XGBoost                engineered CV PR-AUC 0.8818±0.0402 | val PR-AUC 0.8300
+2026-11-06 17:41:39 | INFO    | predictx.train |   LightGBM               baseline   CV PR-AUC 0.7891±0.0880 | val PR-AUC 0.7895
+2026-11-06 17:41:40 | INFO    | predictx.train |   LightGBM               engineered CV PR-AUC 0.8861±0.0512 | val PR-AUC 0.8589
+2026-11-06 17:41:55 | INFO    | predictx.train |   CatBoost               baseline   CV PR-AUC 0.8194±0.0449 | val PR-AUC 0.7617
+2026-11-06 17:42:13 | INFO    | predictx.train |   CatBoost               engineered CV PR-AUC 0.8937±0.0468 | val PR-AUC 0.8592
+2026-11-06 17:42:23 | INFO    | predictx.train |   Neural Network (MLP)   baseline   CV PR-AUC 0.7356±0.0734 | val PR-AUC 0.7290
+2026-11-06 17:42:32 | INFO    | predictx.train |   Neural Network (MLP)   engineered CV PR-AUC 0.7925±0.0724 | val PR-AUC 0.7722
+2026-11-06 17:42:32 | INFO    | predictx.train | Mean val PR-AUC by feature set: {'baseline': 0.6941, 'engineered': 0.7756} -> using 'engineered'
+2026-11-06 17:42:32 | INFO    | predictx.train | Experiments 1 & 4: hyperparameter tuning (RandomizedSearchCV, 20 iter, 5-fold, scoring=average_precision)
+2026-11-06 17:42:35 | INFO    | predictx.train |   Logistic Regression    best CV average_precision = 0.5012  (2.3s)
+2026-11-06 17:44:54 | INFO    | predictx.train |   Random Forest          best CV average_precision = 0.9203  (139.1s)
+2026-11-06 17:45:06 | INFO    | predictx.train |   XGBoost                best CV average_precision = 0.8931  (11.9s)
+2026-11-06 17:45:24 | INFO    | predictx.train |   LightGBM               best CV average_precision = 0.8900  (18.4s)
+2026-11-06 17:47:36 | INFO    | predictx.train |   CatBoost               best CV average_precision = 0.8985  (132.0s)
+2026-11-06 17:49:08 | INFO    | predictx.train |   Neural Network (MLP)   best CV average_precision = 0.7666  (91.2s)
+2026-11-06 17:49:08 | INFO    | predictx.train | Model selection on VALIDATION val_pr_auc -> Random Forest
+2026-11-06 17:49:08 | INFO    | predictx.train | Experiment 3: class-imbalance strategies for Random Forest (tuned hyperparameters)
+2026-11-06 17:49:28 | INFO    | predictx.train |   none                 CV PR-AUC 0.9203 | val PR-AUC 0.8897 | val F1 0.8475 | recall@0.5 0.735
+2026-11-06 17:49:43 | INFO    | predictx.train |   class_weight         CV PR-AUC 0.8949 | val PR-AUC 0.8414 | val F1 0.7899 | recall@0.5 0.912
+2026-11-06 17:50:26 | INFO    | predictx.train |   smote                CV PR-AUC 0.8897 | val PR-AUC 0.8329 | val F1 0.7899 | recall@0.5 0.838
+2026-11-06 17:50:29 | INFO    | predictx.train |   random_undersample   CV PR-AUC 0.6979 | val PR-AUC 0.5806 | val F1 0.5594 | recall@0.5 0.926
+2026-11-06 17:50:29 | INFO    | predictx.train | Keeping tuned configuration (no strategy beat it by > 0.005 val PR-AUC)
+2026-11-06 17:50:29 | INFO    | predictx.train | Experiment 5: probability calibration (fit with 5-fold CV on train, judged on validation)
+2026-11-06 17:50:29 | INFO    | predictx.train |   none      Brier 0.00828 | ECE 0.00442 | logloss 0.0348 | PR-AUC 0.8897
+2026-11-06 17:50:54 | INFO    | predictx.train |   sigmoid   Brier 0.00882 | ECE 0.00396 | logloss 0.0454 | PR-AUC 0.8874
+2026-11-06 17:51:18 | INFO    | predictx.train |   isotonic  Brier 0.00847 | ECE 0.00535 | logloss 0.0346 | PR-AUC 0.8828
+2026-11-06 17:51:18 | INFO    | predictx.train | Calibration chosen by lowest validation Brier score: none
+2026-11-06 17:51:18 | INFO    | predictx.train | Deployed decision threshold (validation, strategy=f1): 0.6960
+2026-11-06 17:51:18 | INFO    | predictx.train | Final evaluation on the held-out TEST set
+2026-11-06 17:51:22 | INFO    | predictx.train |   TEST Logistic Regression                           P 0.479 R 0.515 F1 0.496 PR-AUC 0.461 ROC-AUC 0.920
+2026-11-06 17:51:22 | INFO    | predictx.train |   TEST Random Forest                                 P 1.000 R 0.750 F1 0.857 PR-AUC 0.903 ROC-AUC 0.972
+2026-11-06 17:51:22 | INFO    | predictx.train |   TEST XGBoost                                       P 0.900 R 0.794 F1 0.844 PR-AUC 0.887 ROC-AUC 0.973
+2026-11-06 17:51:22 | INFO    | predictx.train |   TEST LightGBM                                      P 0.921 R 0.853 F1 0.885 PR-AUC 0.898 ROC-AUC 0.973
+2026-11-06 17:51:22 | INFO    | predictx.train |   TEST CatBoost                                      P 0.877 R 0.838 F1 0.857 PR-AUC 0.873 ROC-AUC 0.970
+2026-11-06 17:51:22 | INFO    | predictx.train |   TEST Neural Network (MLP)                          P 0.723 R 0.691 F1 0.707 PR-AUC 0.762 ROC-AUC 0.977
+2026-11-06 17:51:24 | INFO    | predictx.train | Experiment 6: SHAP interpretability analysis
+2026-11-06 17:51:27 | INFO    | predictx.train | Top SHAP features: [{'feature': 'temp_diff_k', 'share_pct': 24.82}, {'feature': 'wear_torque_min_nm', 'share_pct': 23.11}, {'feature': 'rotational_speed_rpm', 'share_pct': 21.15}, {'feature': 'power_w', 'share_pct': 12.76}, {'feature': 'tool_wear_min', 'share_pct': 6.58}]
+2026-11-06 17:51:27 | INFO    | predictx.train | Experiment 7: error analysis on test (deployed model)
+2026-11-06 17:51:27 | INFO    | predictx.train | FN count 17, FP count 0; recall by mode: {'Tool Wear Failure': 0.1, 'Heat Dissipation Failure': 0.828, 'Power Failure': 1.0, 'Overstrain Failure': 0.938, 'Random Failure': nan, 'No mode label': 0.0}
+2026-11-06 17:51:27 | INFO    | predictx.train | Ablation: drop one feature at a time (Random Forest, tuned hyperparameters, uncalibrated)
+2026-11-06 17:54:48 | INFO    | predictx.train | Optional module: failure-mode (multi-label) models
+2026-11-06 17:54:49 | INFO    | predictx.train | All artifacts saved. Total runtime 13.5 min

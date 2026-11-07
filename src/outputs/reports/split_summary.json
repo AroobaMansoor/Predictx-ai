@@ -1,0 +1,17 @@
+{
+  "train": {
+    "rows": 6000,
+    "failures": 203,
+    "failure_rate": 0.03383333333333333
+  },
+  "validation": {
+    "rows": 2000,
+    "failures": 68,
+    "failure_rate": 0.034
+  },
+  "test": {
+    "rows": 2000,
+    "failures": 68,
+    "failure_rate": 0.034
+  }
+}

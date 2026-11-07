@@ -1,0 +1,14 @@
+2026-11-06 17:55:01 | INFO    | predictx.evaluate | Deployed model: Random Forest (deployed) | threshold 0.6960
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   accuracy             0.9915
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   precision            1.0000
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   recall               0.7500
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   f1                   0.8571
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   roc_auc              0.9715
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   pr_auc               0.9032
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   false_positive_rate  0.0000
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   false_negative_rate  0.2500
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   brier                0.0068
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   ece                  0.0036
+2026-11-06 17:55:01 | INFO    | predictx.evaluate |   confusion matrix  TN=1932 FP=0 FN=17 TP=51
+2026-11-06 17:55:02 | INFO    | predictx.evaluate |   inference: 0.0212 ms/sample (batch), 26.30 ms single-row
+2026-11-06 17:55:02 | INFO    | predictx.evaluate | Reproducibility check passed: metrics identical to the training-time record.

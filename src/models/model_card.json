@@ -1,0 +1,78 @@
+{
+  "model_key": "random_forest",
+  "model_display_name": "Random Forest",
+  "deployed_label": "Random Forest (deployed)",
+  "feature_set": "engineered",
+  "features": [
+    "type",
+    "air_temp_k",
+    "process_temp_k",
+    "rotational_speed_rpm",
+    "torque_nm",
+    "tool_wear_min",
+    "temp_diff_k",
+    "power_w",
+    "wear_torque_min_nm",
+    "temp_diff_x_torque"
+  ],
+  "feature_docs": {
+    "temp_diff_k": {
+      "formula": "process_temp_k - air_temp_k",
+      "unit": "K"
+    },
+    "power_w": {
+      "formula": "torque_nm * rotational_speed_rpm * 2*pi/60",
+      "unit": "W"
+    },
+    "wear_torque_min_nm": {
+      "formula": "tool_wear_min * torque_nm",
+      "unit": "min*Nm"
+    },
+    "temp_diff_x_torque": {
+      "formula": "(process_temp_k - air_temp_k) * torque_nm",
+      "unit": "K*Nm"
+    }
+  },
+  "imbalance_handling": "as tuned (search included class weighting)",
+  "calibration": "none",
+  "decision_threshold": 0.695998878758203,
+  "threshold_strategy": "f1",
+  "best_params": {
+    "model__class_weight": null,
+    "model__max_depth": 6,
+    "model__max_features": 0.8,
+    "model__min_samples_leaf": 3,
+    "model__min_samples_split": 9,
+    "model__n_estimators": 572
+  },
+  "selection": "highest validation pr_auc",
+  "test_metrics": {
+    "accuracy": 0.9915,
+    "precision": 1.0,
+    "recall": 0.75,
+    "f1": 0.8571428571428571,
+    "roc_auc": 0.971543508707831,
+    "pr_auc": 0.9031815140416021,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 0.25,
+    "brier": 0.00684057382375622,
+    "ece": 0.0036353651199459696,
+    "mcc": 0.8622402122865417
+  },
+  "trained_at": "2026-11-06T17:54:49",
+  "library_versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1",
+    "lightgbm": "4.7.0",
+    "catboost": "1.2.10",
+    "imbalanced-learn": "0.14.2",
+    "shap": "0.54.1"
+  },
+  "seed": 42,
+  "quick_run": false,
+  "train_rows": 6000,
+  "dataset": "AI4I 2020 Predictive Maintenance Dataset (UCI id 601, synthetic)"
+}
